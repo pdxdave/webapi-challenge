@@ -16,8 +16,10 @@ server.use(logger)
 
 // require routers
 const ProjectRouter = require('./data/routers/projRouter');
+const ActionRouter = require('./data/routers/actRouter')
 
 server.use('/api/project', ProjectRouter);
+server.use('/api/action', ActionRouter);
 
 server.get('/', (req, res) => {
     res.send(`<h3>Test page</h3>`);
