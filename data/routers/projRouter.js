@@ -37,6 +37,26 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+
+//GET project actions
+router.get('/:id/actions', async (req, res) => {
+    try {
+        const pm = await ProjectModel.getProjectActions(req.params.id)
+        if (pm) {
+            res.status(200).json(pm)
+        } else {
+            res.status(404).json({
+                message: "The project with specific ID and action does not exist"
+            })
+        }
+    } catch (error) {
+        res.status(500).json({
+            message: "The project action information could not be retrieved"
+        })
+    }
+});
+
+
 // INSERT a new project
 router.post('/', async (req, res) => {
     try {
