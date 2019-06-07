@@ -25,14 +25,40 @@ In this challenge, create a web API around the following resources: `Projects` a
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] Mention two parts of Express that you learned about this week.
+   I learned thatexpress is a Javascript framework that sits on top
+   of the NodeJS webserver.  It also adds extra functionality like 
+   routing and middlware support.
 
 - [ ] Describe Middleware?
+   Middleware is the functions thatget the request and repsonse
+   objects.  Middleware can be used for logging in requests
+   and security through authentication
 
 - [ ] Describe a Resource?
+   A resource is an boject with a type, associated data, relationships
+   to other resources, and a set of methods that operate on it. When
+   designing a RESTful Web API, everything is a resource.  Each 
+   resource is accessible through a uniq URI. Managemment of resources
+   is done via HTTP methods.
 
 - [ ] What can the API return to help clients know if a request was successful?
+   Well, it woud be possible to add error-handling middlware to the server.
+   One could create a middlware function and then use it like middleware or
+   inline.  We've been doing this with something like
+
+   res.status(201).json({ message: "The content was added succesfully" })
 
 - [ ] How can we partition our application into sub-applications?
+
+   By no means is this a technical explanation, but this is how I think
+   of sub-applications.  Sub-applications sit under the umbrella of the
+   main application.  For instance, we may have a url that pulls up
+   some posts (starting from the root): /api/posts/
+   Each post may have an id associated with it, so we'd have 
+   /api/posts/:id
+   Using that id we may be able to pull up additional material such
+   as messages associated with that id; for instance, /api/posts/:id/messages
+   This ishow I understand sub-applications
 
 ## Project Setup
 
